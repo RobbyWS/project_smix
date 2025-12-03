@@ -1,4 +1,3 @@
-<!-- test -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -108,7 +107,8 @@
             <input type="text" name="nama" required>
         </div>
 
-        <div class="input-group">
+        <!-- combobox -->
+        <div class="input-group"> 
             <label>Varian:</label>
             <select name="varian" id="varians">
                 <option value="Bolognese">Bolognese</option>
