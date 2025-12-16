@@ -1,6 +1,11 @@
 <?php
 include_once "connection.php";
 
+$sumQuery = "SELECT SUM(totalHarga) AS totalPendapatan FROM orderan";
+$sumResult = $conn->query($sumQuery);
+$sumRow = $sumResult->fetch_assoc();
+$totalPendapatan = $sumRow['totalPendapatan'] ?? 0;
+
 $sql = "SELECT * FROM orderan ORDER BY idorder DESC";
 $result = $conn->query($sql);
 
@@ -31,6 +36,14 @@ while ($row = $result->fetch_assoc()) {
     echo "<td>".$row['tanggal_order']."</td>";
     echo "</tr>";
 }
+
+
+echo "
+<tr>
+    <td colspan='4'><strong>Total Pendapatan</strong></td>
+    <td colspan='2'><strong>Rp ".number_format($totalPendapatan,0,',','.')."</strong></td>
+</tr>
+";
 
 echo "</table>";
 exit();
